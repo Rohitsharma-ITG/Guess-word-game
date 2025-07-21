@@ -126,7 +126,7 @@ const Guess = () => {
     let correctGuess = false;
 
     for (let i = 0; i < randomword.length; i++) {
-      if (randomword[i] === input) {
+      if (randomword[i] === input.toLowerCase()) {
         newStars[i] = input;
         correctGuess = true;
       }
