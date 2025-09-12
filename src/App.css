@@ -77,6 +77,7 @@
   font-weight: bold;
   color: #333;
 }
+
 .night .mode-label {
   font-size: 1.1em;
   font-weight: bold;
@@ -136,14 +137,14 @@
 }
 
 .stage-div {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .night select {
-    padding: 5px;
-    outline: none;
-    background: #d0d0d0;
+  padding: 5px;
+  outline: none;
+  background: #d0d0d0;
 }
 
 .night .submit-btn,
@@ -213,9 +214,9 @@
 }
 
 .day select {
-    padding: 5px;
-    outline: none;
-    background: #bfe1ff;
+  padding: 5px;
+  outline: none;
+  background: #bfe1ff;
 }
 
 .day .input-container {
@@ -275,4 +276,40 @@
   color: #333;
   margin-top: 18px;
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .game-container {
+    width: 410px !important;
+  }
+
+  .input-container {
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+
+  p.stars-display {
+    font-size: 14px !important;
+  }
+
+  h2.game-title {
+    font-size: 26px !important;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .game-container {
+    padding: 10px !important;
+    margin: 16px auto !important;
+    width: 330px !important;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .game-container {
+    padding: 10px !important;
+    margin: 16px auto !important;
+    width: 280px !important;
+  }
 }
