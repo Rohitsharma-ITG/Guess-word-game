@@ -310,6 +310,7 @@ const Guess = () => {
   const [guessed, setGuessed] = useState(false);
   const [usedLetters, setUsedLetters] = useState([]);
   const [statusMessage, setStatusMessage] = useState('');
+  const [stage, setStage] = useState("easy")
 
   const generateStars = (word) => {
     let lettersToReveal = 1;
@@ -317,6 +318,10 @@ const Guess = () => {
       lettersToReveal = 2;
     } else if (word.length > 8) {
       lettersToReveal = 3;
+    }
+
+    if (stage == "medium" || stage == "hard") {
+      lettersToReveal = 0;
     }
 
     let indexes = [];
@@ -335,7 +340,7 @@ const Guess = () => {
     const word = words[newRandomNum].toLowerCase();
     setRandomword(word);
     setStars(generateStars(word));
-  }, []);
+  }, [stage]);
 
   const newword = () => {
     const newRandomNum = Math.floor(Math.random() * words.length);
@@ -371,7 +376,7 @@ const Guess = () => {
     if (!correctGuess) {
       setIncorrectGuesses(prev => {
         const newCount = prev + 1;
-        if (newCount >= 8) {
+        if (newCount >= (stage == "hard" ? 4 : 8)) {
           setStars(randomword.split(''));
           setGuessed(true);
           setStatusMessage('You Lose!');
@@ -398,6 +403,17 @@ const Guess = () => {
 
   return (
     <div className="game-container">
+      <div className="stage-div">
+        <select
+          name="stage"
+          value={stage}
+          onChange={(e) => setStage(e.target.value)}
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
       <h2 className="game-title">Guess the Word!</h2>
       <p className="stars-display">{stars.join(' ')}</p>
       <div className="input-container">
@@ -411,7 +427,7 @@ const Guess = () => {
         />
         <button
           onClick={handleSubmit}
-          disabled={guessed || incorrectGuesses >= 8}
+          disabled={guessed || incorrectGuesses >= (stage == "hard" ? 4 : 8)}
           className="submit-btn"
         >
           Submit
@@ -424,7 +440,7 @@ const Guess = () => {
           New Word
         </button>
       </div>
-      <p className="incorrect-guesses">Incorrect guesses: {incorrectGuesses}/8</p>
+      <p className="incorrect-guesses">Incorrect guesses: {incorrectGuesses}/{(stage == "hard" ? "4" : "8")}</p>
       <p className="used-letters">Used letters: {usedLetters.join(', ')}</p>
       <p className="status-message">{statusMessage}</p>
     </div>

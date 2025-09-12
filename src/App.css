@@ -135,6 +135,17 @@
   box-shadow: 0 0 8px rgba(255, 126, 95, 0.6);
 }
 
+.stage-div {
+    display: flex;
+    justify-content: end;
+}
+
+.night select {
+    padding: 5px;
+    outline: none;
+    background: #d0d0d0;
+}
+
 .night .submit-btn,
 .night .new-word-btn {
   background-color: #424242;
@@ -199,6 +210,12 @@
   color: #333;
   margin-bottom: 25px;
   font-weight: bold;
+}
+
+.day select {
+    padding: 5px;
+    outline: none;
+    background: #bfe1ff;
 }
 
 .day .input-container {
