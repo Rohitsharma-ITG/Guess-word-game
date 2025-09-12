@@ -310,6 +310,9 @@
   .game-container {
     width: 280px !important;
   }
+  .memory-game-container{
+    width: 275px !important;
+  }
 }
 
 .day .memory-game-container {
