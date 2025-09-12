@@ -5,14 +5,26 @@ import './App.css'
 import Guess from './component/Guess'
 
 function App() {
-  const [count, setCount] = useState(0)
-  
+  const [officeMode, setOfficeMode] = useState(false)
+
 
   return (
-    <>
-     
-     <Guess />
-    </>
+    <div className={officeMode ? "night" : "day"}>
+      <div className="toggle-btn">
+        <label className="switch">
+          <input
+            type="checkbox"
+            checked={officeMode}
+            onChange={() => setOfficeMode(v => !v)}
+          />
+          <span className="slider"></span>
+        </label>
+        <span className="mode-label">
+          Office Mode
+        </span>
+      </div>
+      <Guess />
+    </div>
   )
 }
 
