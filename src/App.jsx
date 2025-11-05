@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Guess from './component/Guess'
 import MemoryGame from './component/MemoryGame'
+import SnakeGame from './component/SnakeGame'
 
 function App() {
   const [officeMode, setOfficeMode] = useState(false)
@@ -33,10 +34,11 @@ function App() {
         >
           <option value="guess">Guess the Word</option>
           <option value="memory">Memory Game</option>
+          <option value="snake">Snake Game</option>
         </select>
       </div>
       {
-        (game == "guess") ? <Guess /> : <MemoryGame />
+        (game == "guess") ? <Guess /> : (game == "memory") ? <MemoryGame /> : <SnakeGame />
       }
 
 

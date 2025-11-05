@@ -310,7 +310,8 @@
   .game-container {
     width: 280px !important;
   }
-  .memory-game-container{
+
+  .memory-game-container {
     width: 275px !important;
   }
 }
@@ -340,10 +341,10 @@
 }
 
 .outer-right {
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    margin-right: 40px;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin-right: 40px;
 }
 
 h1 {
@@ -408,4 +409,88 @@ h1 {
 
 .restart-btn:hover {
   background: #0056b3;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.game-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2f855a;
+}
+
+.score {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.game-board {
+  position: relative;
+  background-color: #e5e7eb;
+  border: 3px solid #444;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.snake-cell {
+  position: absolute;
+  background-color: #38a169;
+  border: 1px solid #276749;
+  border-radius: 4px;
+  transition: all 0.05s linear;
+}
+
+.food {
+  position: absolute;
+  background-color: #e53e3e;
+  border-radius: 50%;
+  border: 2px solid #9b2c2c;
+}
+
+.game-over {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.restart-btn {
+  margin-top: 15px;
+  background-color: #3182ce;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.restart-btn:hover {
+  background-color: #2b6cb0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
